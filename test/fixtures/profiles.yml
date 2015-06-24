@@ -12,6 +12,7 @@ one:
   image: MyString
   linkedin_id: MyString
   linkedin_url: MyString
+  linkedin_company_id: 123
 
 two:
   name: MyString
@@ -25,3 +26,4 @@ two:
   image: MyString
   linkedin_id: MyString
   linkedin_url: MyString
+  linkedin_company_id: 123

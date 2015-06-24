@@ -18,7 +18,7 @@ class ProfilesControllerTest < ActionController::TestCase
 
   test "should create profile" do
     assert_difference('Profile.count') do
-      post :create, profile: { address_city: @profile.address_city, address_country: @profile.address_country, address_full: @profile.address_full, company: @profile.company, first_name: @profile.first_name, image: @profile.image, last_name: @profile.last_name, linkedin_id: @profile.linkedin_id, linkedin_url: @profile.linkedin_url, name: @profile.name, title: @profile.title }
+      post :create, profile: { address_city: @profile.address_city, address_country: @profile.address_country, address_full: @profile.address_full, company: @profile.company, first_name: @profile.first_name, image: @profile.image, last_name: @profile.last_name, linkedin_id: @profile.linkedin_id, linkedin_url: @profile.linkedin_url, linkedin_company_id: @profile.linkedin_company_id, name: @profile.name, title: @profile.title }
     end
 
     assert_redirected_to profile_path(assigns(:profile))
@@ -35,7 +35,7 @@ class ProfilesControllerTest < ActionController::TestCase
   end
 
   test "should update profile" do
-    patch :update, id: @profile, profile: { address_city: @profile.address_city, address_country: @profile.address_country, address_full: @profile.address_full, company: @profile.company, first_name: @profile.first_name, image: @profile.image, last_name: @profile.last_name, linkedin_id: @profile.linkedin_id, linkedin_url: @profile.linkedin_url, name: @profile.name, title: @profile.title }
+    patch :update, id: @profile, profile: { address_city: @profile.address_city, address_country: @profile.address_country, address_full: @profile.address_full, company: @profile.company, first_name: @profile.first_name, image: @profile.image, last_name: @profile.last_name, linkedin_id: @profile.linkedin_id, linkedin_url: @profile.linkedin_url, linkedin_company_id: @profile.linkedin_company_id, name: @profile.name, title: @profile.title }
     assert_redirected_to profile_path(assigns(:profile))
   end
 

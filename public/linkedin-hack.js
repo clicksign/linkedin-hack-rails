@@ -86,9 +86,11 @@ function findCompanyId(string) {
   return "";
 }
 
-function fncGetInfo($node){
+function fncGetInfo($frm){
   if (window.location.pathname.indexOf('/sales') === 0) {
     //var $node = $('#topcard').first();
+
+    var $node = $('#topcard', $frm);
     var messageValues = {};
 
     var $profile = $node.find('.profile-info');
@@ -132,7 +134,7 @@ function fncGetInfo($node){
         .text();
     }
 
-    messageValues.linkedin_company_id = findCompanyId($('ol.positions').first().find('a').first().attr('href'));
+    messageValues.linkedin_company_id = findCompanyId($('ol.positions', $frm).first().find('a').first().attr('href'));
 
     console.log(messageValues);
     $.ajax({
