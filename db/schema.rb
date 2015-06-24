@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624022603) do
+ActiveRecord::Schema.define(version: 20150624031332) do
+
+  create_table "emails", force: :cascade do |t|
+    t.string   "domain"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "googles", force: :cascade do |t|
     t.string   "couch_id"
