@@ -4,7 +4,7 @@ class GooglesController < ApplicationController
   # GET /googles
   # GET /googles.json
   def index
-    @googles = Google.all
+    @googles = Google.all.order("query")
   end
 
   # GET /googles/1

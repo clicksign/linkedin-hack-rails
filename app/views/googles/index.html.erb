@@ -5,11 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>Couch</th>
+      <!-- th>Couch</th -->
       <th>Query</th>
       <th>Title</th>
       <th>Link</th>
-      <th>Description</th>
+      <!-- th>Description</th -->
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,11 +17,11 @@
   <tbody>
     <% @googles.each do |google| %>
       <tr>
-        <td><%= google.couch_id %></td>
+        <!-- td><%= google.couch_id %></td -->
         <td><%= google.query %></td>
         <td><%= google.title %></td>
         <td><%= google.link %></td>
-        <td><%= google.description %></td>
+        <!-- td><%= google.description %></td -->
         <td><%= link_to 'Show', google %></td>
         <td><%= link_to 'Edit', edit_google_path(google) %></td>
         <td><%= link_to 'Destroy', google, method: :delete, data: { confirm: 'Are you sure?' } %></td>
