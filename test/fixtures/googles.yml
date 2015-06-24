@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  couch_id: MyString
+  query: MyString
+  title: MyString
+  link: MyString
+  description: MyString
+
+two:
+  couch_id: MyString
+  query: MyString
+  title: MyString
+  link: MyString
+  description: MyString

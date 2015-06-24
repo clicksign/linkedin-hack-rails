@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Couch:</strong>
+  <%= @google.couch_id %>
+</p>
+
+<p>
+  <strong>Query:</strong>
+  <%= @google.query %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @google.title %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @google.link %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @google.description %>
+</p>
+
+<%= link_to 'Edit', edit_google_path(@google) %> |
+<%= link_to 'Back', googles_path %>
