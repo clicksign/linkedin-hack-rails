@@ -76,6 +76,16 @@ function getMatch(regex, text) {
   else return undefined;
 }
 
+function findCompanyId(string) {
+  if (!string) return "";
+
+  if (string.indexOf('companyId=') !== -1) {
+    return string.split('companyId=')[1].split('&')[0];
+  }
+
+  return "";
+}
+
 function fncGetInfo($node){
   if (window.location.pathname.indexOf('/sales') === 0) {
     //var $node = $('#topcard').first();
@@ -121,6 +131,8 @@ function fncGetInfo($node){
         .find('a')
         .text();
     }
+
+    messageValues.linkedin_company_id = findCompanyId($('ol.positions').first().find('a').first().attr('href'));
 
     console.log(messageValues);
     $.ajax({
