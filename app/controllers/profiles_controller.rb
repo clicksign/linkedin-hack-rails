@@ -33,8 +33,8 @@ class ProfilesController < ApplicationController
       else
         format.html { render :new }
         # do not return error to API
-        #format.json { render json: @google.errors, status: :unprocessable_entity }
-        format.json { render :show, status: :created, location: @google }
+        #format.json { render json: @profile.errors, status: :unprocessable_entity }
+        format.json { render :show, status: :created, location: @profile }
       end
     end
   end
