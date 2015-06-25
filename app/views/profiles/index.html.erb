@@ -2,10 +2,16 @@
 
 <h1>Listing Profiles</h1>
 
+<style>
+  tr:nth-child(even) {background: #aaa}
+</style>
+
+
 <table>
   <thead>
     <tr>
       <th></th>
+      <th>Id</th>
       <th>Name</th>
       <th>First name</th>
       <th>Last name</th>
@@ -26,7 +32,8 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', profile, method: :delete, data: {  } %></td>
+        <td><%= profile.id %></td>
         <td><%= profile.name %></td>
         <td><%= profile.first_name %></td>
         <td><%= profile.last_name %></td>
