@@ -18,6 +18,9 @@
         <td><%= link_to 'Show', campaign %></td>
         <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
         <td><%= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Hack Linkedin', controller: 'campaigns', action: 'hack_linkedin', id: campaign.id %></td>
+        <td><%= link_to 'Hack Domains', controller: 'campaigns', action: 'hack_domains', id: campaign.id %></td>
+        <td><%= link_to 'Hack Emails', controller: 'campaigns', action: 'hack_emails', id: campaign.id %></td>
       </tr>
     <% end %>
   </tbody>

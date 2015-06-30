@@ -1,0 +1,32 @@
+<pre>
+{
+  "_id": "linkedin-company-url-campaign-<%= @campaign.id %>",
+  "startUrl": [
+    <% @profiles.each_with_index do |p, index| %>
+      "https://www.linkedin.com/sales/accounts/insights?companyId=<%= p.linkedin_company_id %>&filter=potentialLeads"<%= "," if index != @profiles.size - 1 %>
+    <% end %>
+  ],
+  "selectors": [
+    {
+      "parentSelectors": [
+        "_root"
+      ],
+      "type": "SelectorLink",
+      "multiple": false,
+      "id": "company-id",
+      "selector": "a.see-more-link",
+      "delay": ""
+    },
+    {
+      "parentSelectors": [
+        "_root"
+      ],
+      "type": "SelectorLink",
+      "multiple": false,
+      "id": "url",
+      "selector": "div.hasNav-v1 div div div div div dd > a",
+      "delay": ""
+    }
+  ]
+}
+</pre>

@@ -62,15 +62,22 @@ class CampaignsController < ApplicationController
   end
 
   def hack_linkedin
-
+    set_campaign
+    render "campaigns/hack_linkedin"
   end
 
   def hack_domains
-
+    set_campaign
+    @profiles = Profile
+      .where(campaign_id: params[:id])
+      .where("linkedin_company_id is NOT NULL and linkedin_company_id != ''")
+      .all.order("company, lower(name)")
+    render "campaigns/hack_domains"
   end
 
   def hack_emails
-
+    set_campaign
+    render "campaigns/hack_emails"
   end
 
   private

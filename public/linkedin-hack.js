@@ -86,7 +86,7 @@ function findCompanyId(string) {
   return "";
 }
 
-function fncGetInfo($frm){
+function fncGetInfo($frm, $host, $campaign_id){
   if (window.location.pathname.indexOf('/sales') === 0) {
     //var $node = $('#topcard').first();
 
@@ -136,9 +136,12 @@ function fncGetInfo($frm){
 
     messageValues.linkedin_company_id = findCompanyId($('ol.positions', $frm).first().find('a').first().attr('href'));
 
+    // campaign_id
+    messageValues.campaign_id = $campaign_id;
+
     console.log(messageValues);
     $.ajax({
-      url: "http://192.168.1.97:3000/profiles.json"
+      url: $host + "/profiles.json"
       ,   contentType: "application/json"
       ,   method: "POST"
       ,   data: JSON.stringify(messageValues)
