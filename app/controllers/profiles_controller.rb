@@ -33,7 +33,7 @@ class ProfilesController < ApplicationController
       else
         format.html { render :new }
         # do not return error to API
-        #format.json { render json: @profile.errors, status: :unprocessable_entity }
+        # format.json { render json: @profile.errors, status: :unprocessable_entity }
         format.json { render :show, status: :created, location: @profile }
       end
     end
@@ -70,6 +70,7 @@ class ProfilesController < ApplicationController
     render nothing: true
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
@@ -78,6 +79,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:name, :first_name, :last_name, :company, :title, :address_full, :address_city, :address_country, :image, :linkedin_id, :linkedin_url, :linkedin_company_id, :website)
+      params.require(:profile).permit(:name, :first_name, :last_name, :company, :title, :address_full, :address_city, :address_country, :image, :linkedin_id, :linkedin_url, :linkedin_company_id, :website, :gender, :company_gender, :source, :vertical, :email, :campaing_id)
     end
 end

@@ -57,11 +57,35 @@
   </div>
   <div class="field">
     <%= f.label :linkedin_company_id %><br>
-    <%= f.text_field :linkedin_company_id %>
+    <%= f.number_field :linkedin_company_id %>
   </div>
   <div class="field">
     <%= f.label :website %><br>
     <%= f.text_field :website %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.text_field :gender %>
+  </div>
+  <div class="field">
+    <%= f.label :company_gender %><br>
+    <%= f.text_field :company_gender %>
+  </div>
+  <div class="field">
+    <%= f.label :source %><br>
+    <%= f.text_field :source %>
+  </div>
+  <div class="field">
+    <%= f.label :vertical %><br>
+    <%= f.text_field :vertical %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :campaing_id %><br>
+    <%= f.number_field :campaing_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -56,13 +56,43 @@
 </p>
 
 <p>
-  <strong>Linkedin company id:</strong>
+  <strong>Linkedin company:</strong>
   <%= @profile.linkedin_company_id %>
 </p>
 
 <p>
   <strong>Website:</strong>
-  <%= @profile.website%>
+  <%= @profile.website %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @profile.gender %>
+</p>
+
+<p>
+  <strong>Company gender:</strong>
+  <%= @profile.company_gender %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @profile.source %>
+</p>
+
+<p>
+  <strong>Vertical:</strong>
+  <%= @profile.vertical %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @profile.email %>
+</p>
+
+<p>
+  <strong>Campaing:</strong>
+  <%= @profile.campaing_id %>
 </p>
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |

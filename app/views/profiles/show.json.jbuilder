@@ -1,1 +1,1 @@
-json.extract! @profile, :id, :name, :first_name, :last_name, :company, :title, :address_full, :address_city, :address_country, :image, :linkedin_id, :linkedin_url, :linkedin_company_id, :website, :created_at, :updated_at
+json.extract! @profile, :id, :name, :first_name, :last_name, :company, :title, :address_full, :address_city, :address_country, :image, :linkedin_id, :linkedin_url, :linkedin_company_id, :website, :gender, :company_gender, :source, :vertical, :email, :campaing_id, :created_at, :updated_at
