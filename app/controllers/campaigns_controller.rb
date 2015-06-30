@@ -68,10 +68,10 @@ class CampaignsController < ApplicationController
 
   def hack_domains
     set_campaign
-    @profiles = Profile
+    @companies = Profile
       .where(campaign_id: params[:id])
       .where("linkedin_company_id is NOT NULL and linkedin_company_id != ''")
-      .all.order("company, lower(name)")
+      .uniq.pluck(:linkedin_company_id)
     render "campaigns/hack_domains"
   end
 

@@ -2,8 +2,8 @@
 {
   "_id": "linkedin-company-url-campaign-<%= @campaign.id %>",
   "startUrl": [
-    <% @profiles.each_with_index do |p, index| %>
-      "https://www.linkedin.com/sales/accounts/insights?companyId=<%= p.linkedin_company_id %>&filter=potentialLeads"<%= "," if index != @profiles.size - 1 %>
+    <% @companies.each_with_index do |company_id, index| %>
+      "https://www.linkedin.com/sales/accounts/insights?companyId=<%= company_id %>&filter=potentialLeads"<%= "," if index != @companies.size - 1 %>
     <% end %>
   ],
   "selectors": [
