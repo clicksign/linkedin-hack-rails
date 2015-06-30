@@ -20,6 +20,7 @@
         <td><%= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Hack Linkedin', controller: 'campaigns', action: 'hack_linkedin', id: campaign.id %></td>
         <td><%= link_to 'Hack Domains', controller: 'campaigns', action: 'hack_domains', id: campaign.id %></td>
+        <td><%= link_to 'Import Website', controller: 'profiles', action: 'import_websites', id: campaign.id %></td>
         <td><%= link_to 'Hack Emails', controller: 'campaigns', action: 'hack_emails', id: campaign.id %></td>
       </tr>
     <% end %>

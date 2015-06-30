@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   resources :profiles
 
   root 'campaigns#index'
-  post 'profiles/website' => 'profiles#update_website'
   get  'campaigns/:id/profiles' => 'profiles#index_campaigns'
   get  'campaigns/:id/hack_linkedin' => 'campaigns#hack_linkedin'
   get  'campaigns/:id/hack_domains' => 'campaigns#hack_domains'
   get  'campaigns/:id/hack_emails' => 'campaigns#hack_emails'
+  get  'campaigns/:id/import_websites' => 'profiles#import_websites'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

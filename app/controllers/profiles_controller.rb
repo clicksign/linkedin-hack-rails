@@ -70,13 +70,24 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def update_website
-    @profiles = Profile.where(linkedin_company_id: params[:linkedin_company_id])
-    @profiles.update_all(website:  params[:website])
+  def import_websites
+    url = "http://127.0.0.1:9999/sitemap-data-linkedin-company-url-campaign-#{params[:id]}/_all_docs?include_docs=true"
+    resource = RestClient::Resource.new(url)
+    @data = resource.get()
+    @json = JSON.parse(@data)
 
-    render nothing: true
+    @json['rows'].each do |j|
+      company_id = j['doc']['company-id-href'].split('pivotId=')[1].split('&')[0],
+      website = j['doc']['url']
+
+      if website.present?
+        @profiles = Profile.where(linkedin_company_id: company_id)
+        @profiles.update_all(website: website)
+      end
+    end
+
+    redirect_to "/campaigns/#{params[:id]}/profiles"
   end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
