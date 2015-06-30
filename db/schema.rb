@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630022856) do
+ActiveRecord::Schema.define(version: 20150630032605) do
 
   create_table "campaigns", force: :cascade do |t|
     t.string   "title"
@@ -59,9 +59,9 @@ ActiveRecord::Schema.define(version: 20150630022856) do
     t.string   "source"
     t.string   "vertical"
     t.string   "email"
-    t.integer  "campaing_id"
+    t.integer  "campaign_id"
   end
 
-  add_index "profiles", ["campaing_id"], name: "index_profiles_on_campaing_id"
+  add_index "profiles", ["campaign_id"], name: "index_profiles_on_campaign_id"
 
 end
