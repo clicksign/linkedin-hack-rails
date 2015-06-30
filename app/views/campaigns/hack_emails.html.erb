@@ -1,1 +1,35 @@
- 
+<h3>Dividir de 50 em 50</h3>
+<pre>
+{
+  "_id": "email-format-com--campaign-<%= @campaign.id %>",
+  "selectors": [
+    {
+      "parentSelectors": [
+        "_root"
+      ],
+      "type": "SelectorText",
+      "multiple": true,
+      "id": "emails",
+      "selector": "td.td_email div.fl:nth-of-type(1)",
+      "regex": "",
+      "delay": ""
+    },
+    {
+      "parentSelectors": [
+        "_root"
+      ],
+      "type": "SelectorText",
+      "multiple": false,
+      "id": "domain",
+      "selector": "li.active:nth-of-type(3)",
+      "regex": "",
+      "delay": ""
+    }
+  ],
+  "startUrl": [
+    <% @domains.each_with_index do |domain, index| %>
+      "https://www.email-format.com/d/<%= domain %>#"<%= "," if index != @domains.size - 1 %>
+    <% end %>
+  ]
+}
+</pre>

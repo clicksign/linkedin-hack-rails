@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get  'campaigns/:id/hack_domains' => 'campaigns#hack_domains'
   get  'campaigns/:id/hack_emails' => 'campaigns#hack_emails'
   get  'campaigns/:id/import_websites' => 'profiles#import_websites'
+  get  'campaigns/:id/import_emails' => 'emails#import_emails'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -63,6 +63,25 @@ class EmailsController < ApplicationController
     end
   end
 
+  def import_emails
+    url = "http://127.0.0.1:9999/sitemap-data-email-format-com--campaign-#{params[:id]}/_all_docs?include_docs=true"
+    resource = RestClient::Resource.new(url)
+    @data = resource.get()
+    @json = JSON.parse(@data)
+
+    @json['rows'].each do |j|
+      if j['doc']['domain'].present? and j['doc']['emails'].present?
+        domain = j['doc']['domain'].strip
+        email = j['doc']['emails'].strip
+
+        @emails = Email.new(email: email, domain: domain)
+        @emails.save
+      end
+    end
+
+    redirect_to "/emails"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_email

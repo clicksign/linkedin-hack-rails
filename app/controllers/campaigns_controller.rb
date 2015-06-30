@@ -77,6 +77,11 @@ class CampaignsController < ApplicationController
 
   def hack_emails
     set_campaign
+    @domains = Profile
+      .where(campaign_id: params[:id])
+      .where("domain is NOT NULL and domain != ''")
+      .order("domain desc")
+      .uniq.pluck(:domain)
     render "campaigns/hack_emails"
   end
 

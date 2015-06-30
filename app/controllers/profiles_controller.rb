@@ -81,8 +81,9 @@ class ProfilesController < ApplicationController
       website = j['doc']['url']
 
       if website.present?
+        domain = Domainatrix.parse(website.downcase).domain_with_public_suffix
         @profiles = Profile.where(linkedin_company_id: company_id)
-        @profiles.update_all(website: website)
+        @profiles.update_all(website: website, domain: domain)
       end
     end
 
