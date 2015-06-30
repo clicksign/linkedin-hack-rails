@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   resources :googles
   resources :profiles
 
+  root 'campaigns#index'
   post 'profiles/website' => 'profiles#update_website'
+  get  'campaigns/:id/profiles' => 'profiles#index_campaigns'
+  get  'campaigns/:id/hack_linkedin' => 'campaigns#hack_linkedin'
+  get  'campaigns/:id/hack_domains' => 'profiles#hack_domains'
+  get  'campaigns/:id/hack_emails' => 'profiles#hack_emails'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

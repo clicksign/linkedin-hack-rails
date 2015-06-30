@@ -61,6 +61,18 @@ class CampaignsController < ApplicationController
     end
   end
 
+  def hack_linkedin
+
+  end
+
+  def hack_domains
+
+  end
+
+  def hack_emails
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_campaign

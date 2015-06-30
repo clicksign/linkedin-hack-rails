@@ -7,6 +7,13 @@ class ProfilesController < ApplicationController
     @profiles = Profile.all.order("company, lower(name)")
   end
 
+  # GET /campaigns/:id/profiles
+  # GET /campaigns/:id//profiles.json
+  def index_campaigns
+    @profiles = Profile.where(campaign_id: params[:id]).all.order("company, lower(name)")
+    render "profiles/index"
+  end
+
   # GET /profiles/1
   # GET /profiles/1.json
   def show
