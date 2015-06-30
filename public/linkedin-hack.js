@@ -138,7 +138,7 @@ function fncGetInfo($frm){
 
     console.log(messageValues);
     $.ajax({
-      url: "http://localhost:3000/profiles.json"
+      url: "http://192.168.1.97:3000/profiles.json"
       ,   contentType: "application/json"
       ,   method: "POST"
       ,   data: JSON.stringify(messageValues)

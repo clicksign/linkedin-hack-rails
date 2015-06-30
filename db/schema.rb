@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150625140508) do
+ActiveRecord::Schema.define(version: 20150630022856) do
+
+  create_table "campaigns", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "campaigns", ["title"], name: "index_campaigns_on_title", unique: true
 
   create_table "emails", force: :cascade do |t|
     t.string   "domain"
@@ -46,6 +54,14 @@ ActiveRecord::Schema.define(version: 20150625140508) do
     t.datetime "updated_at",          null: false
     t.integer  "linkedin_company_id"
     t.string   "website"
+    t.string   "gender"
+    t.string   "company_gender"
+    t.string   "source"
+    t.string   "vertical"
+    t.string   "email"
+    t.integer  "campaing_id"
   end
+
+  add_index "profiles", ["campaing_id"], name: "index_profiles_on_campaing_id"
 
 end
