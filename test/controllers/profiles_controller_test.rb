@@ -18,7 +18,7 @@ class ProfilesControllerTest < ActionController::TestCase
 
   test "should create profile" do
     assert_difference('Profile.count') do
-      post :create, profile: { address_city: @profile.address_city, address_country: @profile.address_country, address_full: @profile.address_full, campaign_id: @profile.campaign_id, company: @profile.company, company_gender: @profile.company_gender, email: @profile.email, first_name: @profile.first_name, gender: @profile.gender, image: @profile.image, last_name: @profile.last_name, linkedin_company_id: @profile.linkedin_company_id, linkedin_id: @profile.linkedin_id, linkedin_url: @profile.linkedin_url, name: @profile.name, source: @profile.source, title: @profile.title, vertical: @profile.vertical, website: @profile.website }
+      post :create, profile: { address_city: @profile.address_city, address_country: @profile.address_country, address_full: @profile.address_full, campaign_id: @profile.campaign_id, company: @profile.company, company_gender: @profile.company_gender, email: @profile.email, first_name: @profile.first_name, gender: @profile.gender, image: @profile.image, last_name: @profile.last_name, linkedin_company_id: @profile.linkedin_company_id, linkedin_id: @profile.linkedin_id, linkedin_url: @profile.linkedin_url, name: @profile.name, source: @profile.source, title: @profile.title, vertical: @profile.vertical, website: @profile.website, domain: @profile.domain}
     end
 
     assert_redirected_to profile_path(assigns(:profile))
@@ -35,7 +35,7 @@ class ProfilesControllerTest < ActionController::TestCase
   end
 
   test "should update profile" do
-    patch :update, id: @profile, profile: { address_city: @profile.address_city, address_country: @profile.address_country, address_full: @profile.address_full, campaign_id: @profile.campaign_id, company: @profile.company, company_gender: @profile.company_gender, email: @profile.email, first_name: @profile.first_name, gender: @profile.gender, image: @profile.image, last_name: @profile.last_name, linkedin_company_id: @profile.linkedin_company_id, linkedin_id: @profile.linkedin_id, linkedin_url: @profile.linkedin_url, name: @profile.name, source: @profile.source, title: @profile.title, vertical: @profile.vertical, website: @profile.website }
+    patch :update, id: @profile, profile: { address_city: @profile.address_city, address_country: @profile.address_country, address_full: @profile.address_full, campaign_id: @profile.campaign_id, company: @profile.company, company_gender: @profile.company_gender, email: @profile.email, first_name: @profile.first_name, gender: @profile.gender, image: @profile.image, last_name: @profile.last_name, linkedin_company_id: @profile.linkedin_company_id, linkedin_id: @profile.linkedin_id, linkedin_url: @profile.linkedin_url, name: @profile.name, source: @profile.source, title: @profile.title, vertical: @profile.vertical, website: @profile.website, domain: @profile.domain }
     assert_redirected_to profile_path(assigns(:profile))
   end
 
