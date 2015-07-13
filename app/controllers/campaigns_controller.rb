@@ -70,7 +70,7 @@ class CampaignsController < ApplicationController
     set_campaign
     @companies = Profile
       .where(campaign_id: params[:id])
-      .where("linkedin_company_id is NOT NULL and linkedin_company_id != ''")
+      .where("linkedin_company_id is NOT NULL and linkedin_company_id > 0")
       .uniq.pluck(:linkedin_company_id)
     render "campaigns/hack_domains"
   end
