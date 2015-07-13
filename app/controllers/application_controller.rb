@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   skip_before_action :verify_authenticity_token, if: :json_request?
 
+  http_basic_authenticate_with name: "foo", password: "bar"
+
   protected
 
   def json_request?
