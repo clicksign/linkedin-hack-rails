@@ -18,7 +18,7 @@
   code << "window.remain = ppl.length;" + "\n"
   code << "window.profileLoaded = function() { window.remain--; if (remain === 0) {  setTimeout(fncPeople, 5000); $('a.page-link[title=|Next Page|]').click(); $('iframe.iframe1').remove(); setTimeout(fncPeople, 30000); } }" + "\n"
   code << "$.each(ppl, function(i,r) {" + "\n"
-  code << " $('body').append($('<iframe style=|width: 200px; height: 200px; margin: 10px; float: left| src=|'+$(r).attr('href')+'| onload=|iframeLoaded('+i+');window.profileLoaded();| id=|ifrm'+i+'| class='iframe1'></iframe>'));" + "\n"
+  code << " $('body').append($('<iframe style=|width: 200px; height: 200px; margin: 10px; float: left| src=|'+$(r).attr('href')+'| onload=|iframeLoaded('+i+');window.profileLoaded();| id=|ifrm'+i+'| class=|iframe1|></iframe>'));" + "\n"
   code << "})};fncPeople();"
   %>
 
