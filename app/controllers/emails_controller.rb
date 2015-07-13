@@ -64,7 +64,7 @@ class EmailsController < ApplicationController
   end
 
   def import_emails
-    url = "http://127.0.0.1:9999/sitemap-data-email-format-com--campaign-#{params[:id]}/_all_docs?include_docs=true"
+    url = "http://clicksign.iriscouch.com/sitemap-data-email-format-com--campaign-#{params[:id]}/_all_docs?include_docs=true"
     resource = RestClient::Resource.new(url)
     @data = resource.get()
     @json = JSON.parse(@data)
