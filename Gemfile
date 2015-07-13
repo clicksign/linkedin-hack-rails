@@ -39,6 +39,7 @@ gem 'domainatrix'
 
 gem 'rails_12factor'
 gem 'web-console', '~> 2.0'
+gem 'thin'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
