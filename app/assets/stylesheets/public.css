@@ -1,0 +1,92 @@
+@import "reset.css";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+
+body {
+  background-color: #f6f6f6;
+  font: normal 14px/1.5 "Open Sans", sans-serif;
+  color: #333;
+  padding: 48px;
+}
+
+a {
+  color: #39c;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+.http-status {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 0 auto;
+  padding: 24px;
+  width: 300px;
+}
+
+header,
+footer {
+  text-align: center;
+}
+
+header {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+h1 span {
+  color: #ccc;
+  font-size: 12px;
+}
+
+h1 span:before,
+h1 span:after {
+  content: " — ";
+}
+
+footer {
+  border-top: 1px solid #eee;
+  margin-top: 24px;
+  padding-top: 24px;
+}
+
+footer a {
+  background-color: #2d83e9;
+  border-radius: 3px;
+  color: #fff;
+  display: inline-block;
+  padding: .5em 1em;
+}
+
+footer a:hover,
+footer a:focus {
+  text-decoration: none;
+}
+
+p:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.demo-ribbon {
+  background-color: #f7eb72;
+  font-weight: 600;
+  left: 0;
+  margin: 0;
+  padding: .5em;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  text-transform: uppercase;
+  top: 0;
+}

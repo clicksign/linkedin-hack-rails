@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title= content_for?(:title) ? yield(:title) : 'LinkedinHackRails'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %header
+      =# render 'layouts/navigation'
+    %div.container-fluid.site-body
+      %div.row
+        %div.col-md-12(role="main")
+          =# render 'layouts/messages'
+          = yield

@@ -1,0 +1,61 @@
+%p.notice= notice
+
+%h1 Listing Profiles
+%br
+%table.table.table-striped.table-hover.table-bordered
+  %thead
+    %tr
+      %th Id
+      %th Name
+      %th First name
+      %th Last name
+      %th Company
+      %th Title
+      %th Address full
+      %th Address city
+      %th Address country
+      %th Image
+      %th Linkedin
+      %th Linkedin url
+      %th Linkedin company
+      %th Website
+      %th Domain
+      %th Gender
+      %th Company gender
+      %th Source
+      %th Vertical
+      %th Email
+      %th Campaign
+      %th{colspan:"3"}
+
+  %tbody
+    - @profiles.each do |profile|
+      %tr
+        %td= profile.id
+        %td= profile.name
+        %td= profile.first_name
+        %td= profile.last_name
+        %td= profile.company
+        %td= profile.title
+        %td= profile.address_full
+        %td= profile.address_city
+        %td= profile.address_country
+        %td= profile.image
+        %td= profile.linkedin_id
+        %td= profile.linkedin_url
+        %td= profile.linkedin_company_id
+        %td= profile.website
+        %td= profile.domain
+        %td= profile.gender
+        %td= profile.company_gender
+        %td= profile.source
+        %td= profile.vertical
+        %td= profile.email
+        %td= profile.campaign_id
+        %td= link_to 'Show', profile
+        %td= link_to 'Edit', edit_profile_path(profile)
+        %td= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+%p= link_to 'New Profile', new_profile_path

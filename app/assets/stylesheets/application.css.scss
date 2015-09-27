@@ -1,0 +1,38 @@
+// Example using 'flatly' bootswatch
+
+//Import bootstrap-sprockets
+@import "bootstrap-sprockets";
+
+// Import flatly variables
+@import "bootswatch/spacelab/variables";
+
+// Then bootstrap itself
+@import "bootstrap";
+
+// Bootstrap body padding for fixed navbar
+//body { padding-top: 6px; }
+
+// And finally bootswatch style itself
+@import "bootswatch/spacelab/bootswatch";
+
+// Whatever application styles you have go last
+@import "widget";
+
+.site-body {
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
+
+// Make hamburger menu button more visible
+.navbar-default .navbar-toggle {
+  border-color: #666;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #666;
+}
+
+// Remove height limitation from hamburger menu
+.navbar-fixed-top .navbar-collapse,
+.navbar-fixed-bottom .navbar-collapse {
+  max-height: none;
+}
