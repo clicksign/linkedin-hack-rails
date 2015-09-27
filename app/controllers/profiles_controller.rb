@@ -71,7 +71,7 @@ class ProfilesController < ApplicationController
   end
 
   def import_websites
-    url = "https://clicksign.cloudant.com/sitemap-data-linkedin-company-url-campaign-#{params[:id]}/_all_docs?include_docs=true"
+    url = "https://clicksign:x8T3PyU9f6c7o2436oHp@clicksign.cloudant.com/sitemap-data-linkedin-company-url-campaign-#{params[:id]}/_all_docs?include_docs=true"
     resource = RestClient::Resource.new(url)
     @data = resource.get()
     @json = JSON.parse(@data)
