@@ -1,0 +1,46 @@
+= form_for(@profile) do |f|
+  - if @profile.errors.any?
+    %div#error_explanation
+      %h2= "#{pluralize(@profile.errors.count, "error")} prohibited this profile from being saved:"
+      %ul
+      - @profile.errors.full_messages.each do |message|
+        %li= message
+
+  %table.table.table-striped
+    %tbody
+      %tr
+        %td{width:"150px"} First name:
+        %td= f.text_field :first_name, class: "form-control", placeholder: "First name"
+      %tr
+        %td Last name:
+        %td= f.text_field :last_name, class: "form-control", placeholder: "Last name"
+      %tr
+        %td Company:
+        %td= f.text_field :company, class: "form-control", placeholder: "Company"
+      %tr
+        %td Website:
+        %td= f.text_field :website, class: "form-control", placeholder: "Website"
+      %tr
+        %td Email:
+        %td= f.text_field :email, class: "form-control", placeholder: "Email"
+      %tr
+        %td Gender:
+        %td
+          = f.collection_radio_buttons(:gender, [['Male', 'icon_male'], ['Female', 'icon_female']],
+                                       :first, :last,
+                                       :item_wrapper_class => 'horizontal',
+                                       ) { |g| g.label { image_tag("/images/#{g.text}.svg", width: "36px" ) + g.radio_button }}
+
+          %br
+          <button type="button" class="btn btn-primary"><img style="width:48px;height:48px" src="http://uxrepo.com/download.php?img=static/icon-sets/foundation/svg/fi-male.svg&color=FFFFFF" alt="Fi male icon"></i>Male</button>
+          <button type="button" class="btn btn-primary active"><img style="width:48px;height:48px" src="http://uxrepo.com/download.php?img=static/icon-sets/foundation/svg/fi-male.svg&color=FFFFFF" alt="Fi male icon"></i>Male</button>
+          <button type="button" class="btn btn-primary disabled"><img style="width:48px;height:48px" src="http://uxrepo.com/download.php?img=static/icon-sets/foundation/svg/fi-male.svg&color=FFFFFF" alt="Fi male icon"></i>Male</button>
+          <button type="button" class="btn btn-danger"><img style="width:48px;height:48px" src="http://uxrepo.com/download.php?img=static/icon-sets/foundation/svg/fi-female.svg&color=FFFFFF" alt="Fi male icon"></i>Famale</button>
+          <button type="button" class="btn btn-danger active"><img style="width:48px;height:48px" src="http://uxrepo.com/download.php?img=static/icon-sets/foundation/svg/fi-female.svg&color=FFFFFF" alt="Fi male icon"></i>Famale</button>
+          <button type="button" class="btn btn-danger disabled"><img style="width:48px;height:48px" src="http://uxrepo.com/download.php?img=static/icon-sets/foundation/svg/fi-female.svg&color=FFFFFF" alt="Fi male icon"></i>Famale</button>
+      %tr
+        %td Company gender:
+        %td= f.text_field :company_gender, class: "form-control", placeholder: "Company gender"
+
+  %div.actions
+    = f.submit

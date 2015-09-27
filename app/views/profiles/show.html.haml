@@ -1,0 +1,43 @@
+%div.container
+  %p.notice= notice
+
+  %div.profile-header
+    %div.container
+      %h1= @profile.name
+      %h6= "Title: #{@profile.title}"
+      %h6= "Company: #{@profile.company}"
+      %h6= "Location: #{@profile.address_full}"
+      %h6= link_to @profile.linkedin_url, @profile.linkedin_url, target: "_blank"
+    %div.picture
+      %img(src="#{@profile.image}")
+
+  %br
+
+  %table.table.table-striped
+    %tbody
+      %tr
+        %td{width:"150px"} First name:
+        %td= @profile.first_name
+      %tr
+        %td Last name:
+        %td= @profile.last_name
+      %tr
+        %td Website:
+        - if @profile.website
+          %td= link_to @profile.website, @profile.website, target: "_blank"
+        - else
+          %td
+      %tr
+        %td Email:
+        %td= @profile.email
+      %tr
+        %td Gender:
+        %td= @profile.gender
+      %tr
+        %td Company gender:
+        %td= @profile.company_gender
+
+  %br
+
+  = link_to 'Edit', edit_profile_path(@profile) |
+  = link_to 'Back', profiles_path

@@ -1,0 +1,17 @@
+%div.container
+  %div.profile-header
+    %div.container
+      %h1= @profile.name
+      %h6= "Title: #{@profile.title}"
+      %h6= "Company: #{@profile.company}"
+      %h6= "Location: #{@profile.address_full}"
+      %h6= link_to @profile.linkedin_url, @profile.linkedin_url, target: "_blank"
+    %div.picture
+      %img(src="#{@profile.image}")
+
+  %br
+
+  = render 'form'
+
+  = link_to 'Show', @profile |
+  = link_to 'Back', profiles_path

@@ -1,0 +1,45 @@
+// Place all the styles related to the Papers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profile-header, {
+  position: relative;
+  padding: 30px 0;
+  background-color: #337ab7;
+  border-color: #337ab7;
+  font-size: 20px;
+}
+.profile-header h1 {
+  margin-top: 0;
+  color: #fff;
+  line-height: 1;
+  font-size: 50px;
+}
+.profile-header h6 {
+  margin-top: 0;
+  color: #fff;
+  line-height: 1;
+  font-size: 16px;
+}
+.profile-header a {
+  margin-top: 0;
+  color: #fff;
+  line-height: 1;
+  font-size: 12px;
+}
+.profile-header .container {
+  position: relative;
+}
+.picture{
+  position: absolute;
+  top: 0;
+  right: 0px;
+  padding: 30px!important;
+}
+.picture img {
+  margin: 0!important;
+  max-height: 150px;
+  max-width: 150px;
+  padding:1px;
+  border:1px solid #c7ddef;
+}
