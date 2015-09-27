@@ -29,18 +29,16 @@
           = f.collection_radio_buttons(:gender, [['Male', 'icon_male'], ['Female', 'icon_female']],
                                        :first, :last,
                                        :item_wrapper_class => 'horizontal',
-                                       ) { |g| g.label { image_tag("/images/#{g.text}.svg", width: "36px" ) + g.radio_button }}
-
-          %br
-          <button type="button" class="btn btn-primary"><img style="width:48px;height:48px" src="http://uxrepo.com/download.php?img=static/icon-sets/foundation/svg/fi-male.svg&color=FFFFFF" alt="Fi male icon"></i>Male</button>
-          <button type="button" class="btn btn-primary active"><img style="width:48px;height:48px" src="http://uxrepo.com/download.php?img=static/icon-sets/foundation/svg/fi-male.svg&color=FFFFFF" alt="Fi male icon"></i>Male</button>
-          <button type="button" class="btn btn-primary disabled"><img style="width:48px;height:48px" src="http://uxrepo.com/download.php?img=static/icon-sets/foundation/svg/fi-male.svg&color=FFFFFF" alt="Fi male icon"></i>Male</button>
-          <button type="button" class="btn btn-danger"><img style="width:48px;height:48px" src="http://uxrepo.com/download.php?img=static/icon-sets/foundation/svg/fi-female.svg&color=FFFFFF" alt="Fi male icon"></i>Famale</button>
-          <button type="button" class="btn btn-danger active"><img style="width:48px;height:48px" src="http://uxrepo.com/download.php?img=static/icon-sets/foundation/svg/fi-female.svg&color=FFFFFF" alt="Fi male icon"></i>Famale</button>
-          <button type="button" class="btn btn-danger disabled"><img style="width:48px;height:48px" src="http://uxrepo.com/download.php?img=static/icon-sets/foundation/svg/fi-female.svg&color=FFFFFF" alt="Fi male icon"></i>Famale</button>
+                                       ) { |g| g.label {g.radio_button + image_tag("/images/#{g.text}.svg", width: "36px", height: "36px" ) }}
       %tr
         %td Company gender:
-        %td= f.text_field :company_gender, class: "form-control", placeholder: "Company gender"
+        %td
+          %div.block_radio_button_collection
+            = f.collection_radio_buttons(:company_gender, [['Male', 'icon_male'], ['Female', 'icon_female']],
+                                       :first, :last,
+                                       item_wrapper_class: :block_radio_button_collection,
+                                       ) { |g| g.label { g.radio_button + ( g.value == "Male" ? "o " : "a ") +  @profile.company}}
 
   %div.actions
-    = f.submit
+    = f.submit 'Salvar', class: 'btn btn-primary'
+    = link_to 'Voltar', profiles_path, class: 'btn btn-default'

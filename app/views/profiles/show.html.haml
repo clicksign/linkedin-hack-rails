@@ -32,10 +32,20 @@
         %td= @profile.email
       %tr
         %td Gender:
-        %td= @profile.gender
+        %td
+          - case @profile.gender
+          - when "Male"
+            = image_tag("/images/icon_male.svg", width: "36px", height: "36px" )
+          - when "Female"
+            = image_tag("/images/icon_female.svg", width: "36px", height: "36px" )
       %tr
         %td Company gender:
-        %td= @profile.company_gender
+        %td
+          - case @profile.company_gender
+          - when "Male"
+            = "o #{@profile.company}"
+          - when "Female"
+            = "a #{@profile.company}"
 
   %br
 
