@@ -11,11 +11,11 @@
       %th Email
 
   %tbody
-    - @profiles.each do |profile|
+    - @profiles.each do |p|
       %tr
-        %td= link_to profile.name, edit_profile_path(profile)
-        %td= profile.company
-        %td= profile.title
-        %td= profile.email
+        %td= link_to p.name, edit_campaign_profile_path(@campaign, p)
+        %td= p.company
+        %td= p.title
+        %td= p.email
 
 %br

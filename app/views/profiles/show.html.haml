@@ -1,5 +1,5 @@
 %div.container
-  %p.notice= notice
+  %div{class: "alert alert-info", role:"alert"}= notice
 
   %div.profile-header
     %div.container
@@ -49,5 +49,5 @@
 
   %br
 
-  = link_to 'Edit', edit_profile_path(@profile) |
-  = link_to 'Back', profiles_path
+  = link_to 'Edit', edit_campaign_profile_path(@campaign, @profile) |
+  = link_to 'Back', campaign_profiles_path(@campaign)

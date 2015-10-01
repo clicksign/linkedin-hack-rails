@@ -11,16 +11,14 @@
   %tbody
     - @campaigns.each do |campaign|
       %tr
-        %td= campaign.title
-        %td= link_to 'Profiles', controller: 'profiles', action: 'index_campaigns', id: campaign.id
-        %td= link_to 'Show', campaign
-        %td= link_to 'Edit', edit_campaign_path(campaign)
-        %td= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to campaign.title, campaign_profiles_path(campaign)
         %td= link_to 'Hack Linkedin', controller: 'campaigns', action: 'hack_linkedin', id: campaign.id
         %td= link_to 'Hack Domains', controller: 'campaigns', action: 'hack_domains', id: campaign.id
         %td= link_to 'Import Website', controller: 'profiles', action: 'import_websites', id: campaign.id
         %td= link_to 'Hack Emails', controller: 'campaigns', action: 'hack_emails', id: campaign.id
         %td= link_to 'Import Emails', controller: 'emails', action: 'import_emails', id: campaign.id
+        %td= link_to 'Rename', edit_campaign_path(campaign)
+        %td= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 

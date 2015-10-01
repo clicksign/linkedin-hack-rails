@@ -1,4 +1,4 @@
-= form_for(@profile) do |f|
+= form_for [@campaign, @profile] do |f|
   - if @profile.errors.any?
     %div#error_explanation
       %h2= "#{pluralize(@profile.errors.count, "error")} prohibited this profile from being saved:"
@@ -41,4 +41,4 @@
 
   %div.actions
     = f.submit 'Salvar', class: 'btn btn-primary'
-    = link_to 'Voltar', profiles_path, class: 'btn btn-default'
+    =# link_to 'Voltar', campaing_profiles_path, class: 'btn btn-default'
