@@ -5,14 +5,7 @@ class ProfilesController < ApplicationController
   # GET /profiles.json
   def index
     @campaign = Campaign.find(params[:campaign_id])
-    @profiles = Profile.all.order("company, lower(name)")
-  end
-
-  # GET /campaigns/:id/profiles
-  # GET /campaigns/:id//profiles.json
-  def index_campaigns
-    @profiles = Profile.where(campaign_id: params[:id]).all.order("company, lower(name)")
-    render "profiles/index"
+    @profiles = Profile.where(campaign_id: params[:campaign_id]).all.order("company, lower(name)")
   end
 
   # GET /profiles/1
