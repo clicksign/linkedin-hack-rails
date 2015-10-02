@@ -32,12 +32,12 @@ class ProfilesController < ApplicationController
     respond_to do |format|
       if @profile.save
         format.html { redirect_to campaign_profile_path(@campaign, @profile), notice: 'Profile was successfully created.' }
-        format.json { render :show, status: :created, location: @profile }
+        format.json { render :show, status: :created, head: :no_content }
       else
         format.html { render :new }
         # do not return error to API
         # format.json { render json: @profile.errors, status: :unprocessable_entity }
-        format.json { render :show, status: :created, location: @profile }
+        format.json { render :show, status: :created, head: :no_content }
       end
     end
   end
@@ -62,7 +62,7 @@ class ProfilesController < ApplicationController
     @profile.destroy
     respond_to do |format|
       format.html { redirect_to profiles_url, notice: 'Profile was successfully destroyed.' }
-      format.json { head :no_content }
+      format.json { head: :no_content }
     end
   end
 
