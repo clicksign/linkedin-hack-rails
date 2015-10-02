@@ -7,9 +7,9 @@
     = csrf_meta_tags
   %body
     %header
-      =# render 'layouts/navigation'
+      = render 'layouts/navigation'
     %div.container-fluid.site-body
       %div.row
         %div.col-md-12(role="main")
-          =# render 'layouts/messages'
+          = render 'layouts/messages'
           = yield

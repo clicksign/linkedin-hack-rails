@@ -1,3 +1,5 @@
+%h2= link_to "Campaign: #{@campaign.title}", campaign_profiles_path(@campaign)
+
 %div.container
   %div.profile-header
     %div.container
@@ -8,6 +10,7 @@
       %h6= link_to @profile.linkedin_url, @profile.linkedin_url, target: "_blank"
     %div.picture
       %img(src="#{@profile.image}")
+
 
   %br
 
