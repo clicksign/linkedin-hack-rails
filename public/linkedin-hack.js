@@ -141,7 +141,7 @@ function fncGetInfo($frm, $host, $campaign_id){
 
     console.log(messageValues);
     $.ajax({
-      url: $host + "/profiles.json"
+      url: $host
       ,   contentType: "application/json"
       ,   method: "POST"
       ,   data: JSON.stringify(messageValues)

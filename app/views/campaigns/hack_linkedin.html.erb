@@ -6,7 +6,7 @@
   document.body.appendChild(script);
 
   function iframeLoaded(iframe) {
-    fncGetInfo($("#ifrm" + iframe).contents(), '<%= request.protocol + request.host_with_port %>', '<%= @campaign.id %>');
+    fncGetInfo($("#ifrm" + iframe).contents(), '<%= request.protocol + request.host_with_port %>/campaigns/<%= @campaign.id %>/profiles.json', '<%= @campaign.id %>');
     }
 </pre>
 <br />
