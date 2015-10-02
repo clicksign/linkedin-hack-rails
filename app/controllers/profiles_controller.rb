@@ -20,6 +20,8 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
+    @next = Profile.where(campaign_id: params[:campaign_id])
+      .all.order("company, lower(name)").offset(params[:offset].to_i).first
   end
 
   # POST /profiles
@@ -45,7 +47,7 @@ class ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update(profile_params)
-        format.html { redirect_to campaign_profile_path(@campaign, @profile), notice: 'Profile was successfully updated.' }
+        format.html { redirect_to edit_campaign_profile_path(@campaign, @profile, offset: params[:offset]), notice: 'Profile was successfully updated.' }
         format.json { render :show, status: :ok, location: @profile }
       else
         format.html { render :edit }
@@ -93,6 +95,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:name, :first_name, :last_name, :company, :title, :address_full, :address_city, :address_country, :image, :linkedin_id, :linkedin_url, :linkedin_company_id, :website, :domain, :gender, :company_gender, :source, :vertical, :email, :campaign_id)
+      params.require(:profile).permit(:name, :first_name, :last_name, :company, :title, :address_full, :address_city, :address_country, :image, :linkedin_id, :linkedin_url, :linkedin_company_id, :website, :domain, :gender, :company_gender, :source, :vertical, :email, :campaign_id, :offset_hidden)
     end
 end

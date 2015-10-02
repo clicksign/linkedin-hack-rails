@@ -1,7 +1,4 @@
-%p.notice= notice
-
-%h1= "Listing Profiles - Total: #{@profiles.count}"
-%br
+%h2= "Campaign: #{@campaign.title} - Profiles: #{@profiles.count}"
 %table.table.table-striped.table-hover.table-bordered
   %thead
     %tr
@@ -11,9 +8,11 @@
       %th Email
 
   %tbody
+    - i = 0
     - @profiles.each do |p|
+      - i += 1
       %tr
-        %td= link_to p.name, edit_campaign_profile_path(@campaign, p)
+        %td= link_to p.name, edit_campaign_profile_path(@campaign, p, offset: i)
         %td= p.company
         %td= p.title
         %td= p.email
