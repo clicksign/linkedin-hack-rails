@@ -6,7 +6,10 @@
       %th Company
       %th Title
       %th Email
-
+      %th
+        %span.glyphicon.glyphicon-user
+      %th
+        %span.glyphicon.glyphicon-home
   %tbody
     - i = 0
     - @profiles.each do |p|
@@ -16,5 +19,7 @@
         %td= p.company
         %td= p.title
         %td= p.email
+        %td= p.gender == nil ? '' : (p.gender == 'Male' ? 'M' : 'F')
+        %td= p.company_gender == nil ? '' : (p.company_gender == 'Male' ? 'M' : 'F')
 
 %br
