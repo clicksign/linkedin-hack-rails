@@ -18,6 +18,12 @@
 
   %br
 
+  - if @domain
+    = link_to "Busca no Google", "https://www.google.com.br/search?q=\"%40#{@domain}\"%20email", target: "_blank", class: "btn btn-xs btn-default"
+
+    %br
+    %br
+
   - if @emails
     %table.table.table-striped
       %tbody
