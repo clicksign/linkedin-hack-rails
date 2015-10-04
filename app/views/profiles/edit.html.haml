@@ -15,3 +15,12 @@
   %br
 
   = render 'form'
+
+  %br
+
+  - if @emails
+    %table.table.table-striped
+      %tbody
+        - @emails.each do |e|
+          %tr
+            %td{width:"150px"}= e.email

@@ -22,6 +22,10 @@ class ProfilesController < ApplicationController
   def edit
     @next = Profile.where(campaign_id: params[:campaign_id])
       .all.order("company, lower(name)").offset(params[:offset].to_i).first
+    if @profile.website.present?
+      domain = Domainatrix.parse(@profile.website.downcase).domain_with_public_suffix
+      @emails = Email.where(domain: domain)
+    end
   end
 
   # POST /profiles
