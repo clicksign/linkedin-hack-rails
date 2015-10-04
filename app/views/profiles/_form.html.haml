@@ -41,6 +41,8 @@
 
   %div.actions
     = f.submit 'Salvar', class: 'btn btn-primary'
+    - if @profile.id
+      = link_to 'Destroy', [ @campaign, @profile ], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
     - if @next
       = link_to 'Next', edit_campaign_profile_path(@campaign, @next, offset: params[:offset].to_i + 1), class: 'btn btn-default'
     =# link_to 'Voltar', campaing_profiles_path, class: 'btn btn-default'
