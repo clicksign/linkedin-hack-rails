@@ -68,6 +68,7 @@ class EmailsController < ApplicationController
     resource = RestClient::Resource.new(url)
     @data = resource.get()
     @json = JSON.parse(@data)
+    i = 0
 
     @json['rows'].each do |j|
       if j['doc']['domain'].present? and j['doc']['emails'].present?
@@ -76,10 +77,11 @@ class EmailsController < ApplicationController
 
         @emails = Email.new(email: email, domain: domain)
         @emails.save
+        i += 1
       end
     end
 
-    redirect_to "/emails"
+    redirect_to campaigns_path, notice: "Imported #{i} emails"
   end
 
   private

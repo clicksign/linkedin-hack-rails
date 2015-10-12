@@ -75,6 +75,7 @@ class ProfilesController < ApplicationController
     resource = RestClient::Resource.new(url)
     @data = resource.get()
     @json = JSON.parse(@data)
+    i = 0
 
     @json['rows'].each do |j|
       company_id = j['doc']['company-id-href'].split('pivotId=')[1].split('&')[0],
@@ -84,10 +85,11 @@ class ProfilesController < ApplicationController
         domain = Domainatrix.parse(website.downcase).domain_with_public_suffix
         @profiles = Profile.where(linkedin_company_id: company_id)
         @profiles.update_all(website: website, domain: domain)
+        i += 1
       end
     end
 
-    redirect_to "/campaigns/#{params[:id]}/profiles"
+    redirect_to campaigns_path, notice: "Imported #{i} domains"
   end
 
   private
