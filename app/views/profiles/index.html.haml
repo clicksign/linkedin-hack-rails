@@ -1,4 +1,10 @@
 %h2= "Campaign: #{@campaign.title} - Profiles: #{@profiles.count}"
+
+= form_tag campaign_profiles_path(@campaign), :method => 'get' do
+  %p
+    = text_field_tag :search, params[:search]
+    = submit_tag "Search", :name => nil
+
 = form_tag destroy_multiple_campaign_profiles_path, method: :delete do
   %table.table.table-striped.table-hover.table-bordered
     %thead
