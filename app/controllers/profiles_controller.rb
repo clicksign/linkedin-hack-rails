@@ -25,6 +25,17 @@ class ProfilesController < ApplicationController
     if @profile.website.present?
       @domain = Domainatrix.parse(@profile.website.downcase).domain_with_public_suffix
       @emails = Email.where(domain: @domain)
+      if @domain
+        @email_options = [
+          "Select option",
+          I18n.transliterate(@profile.first_name + "." + @profile.last_name + "@" + @domain).downcase,
+          I18n.transliterate(@profile.first_name[0] + @profile.last_name + "@" + @domain).downcase,
+          I18n.transliterate(@profile.first_name[0] + "." + @profile.last_name + "@" + @domain).downcase,
+          I18n.transliterate(@profile.first_name + @profile.last_name[0] + "@" + @domain).downcase,
+          I18n.transliterate(@profile.first_name + "@" + @domain).downcase,
+          I18n.transliterate(@profile.last_name + "@" + @domain).downcase
+        ]
+      end
     end
   end
 

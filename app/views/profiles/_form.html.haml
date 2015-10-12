@@ -22,7 +22,11 @@
         %td= f.text_field :website, class: "form-control", placeholder: "Website"
       %tr
         %td Email:
-        %td= f.text_field :email, class: "form-control", placeholder: "Email"
+        %td
+          %div= f.text_field :email, class: "form-control", placeholder: "Email"
+          - if @email_options
+            %br
+            %div= select_tag(:email_options, options_for_select( @email_options, @profile.email ), {class: "form-control"})
       %tr
         %td Gender:
         %td
