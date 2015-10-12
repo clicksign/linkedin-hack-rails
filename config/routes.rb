@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   #resources :profiles
 
   resources :campaigns do
-    resources :profiles
+    resources :profiles do
+      collection do
+        delete 'destroy_multiple'
+      end
+    end
   end
 
   root 'campaigns#index'

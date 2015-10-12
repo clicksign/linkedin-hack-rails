@@ -81,6 +81,16 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def destroy_multiple
+    @campaign = Campaign.find(params[:campaign_id])
+    Profile.destroy(params[:campaign_profiles])
+
+    respond_to do |format|
+      format.html { redirect_to campaign_profiles_path(@campaign), notice: 'Profiles was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   def import_websites
     url = "https://clicksign:x8T3PyU9f6c7o2436oHp@clicksign.cloudant.com/sitemap-data-linkedin-company-url-campaign-#{params[:id]}/_all_docs?include_docs=true"
     resource = RestClient::Resource.new(url)
