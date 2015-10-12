@@ -9,7 +9,7 @@
   %table.table.table-striped.table-hover.table-bordered
     %thead
       %tr
-        %th
+        %th= check_box_tag "selectall", "1", false, class: "selectall"
         %th Name
         %th Company
         %th Title
@@ -23,7 +23,7 @@
       - @profiles.each do |p|
         - i += 1
         %tr
-          %td= check_box_tag "campaign_profiles[]", p.id
+          %td= check_box_tag "campaign_profiles[]", p.id, false, class: "profile_checkbox"
           %td= link_to p.name, edit_campaign_profile_path(@campaign, p, offset: i)
           %td= p.company
           %td= p.title
