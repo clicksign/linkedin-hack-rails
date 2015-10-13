@@ -62,12 +62,20 @@ class Profile < ActiveRecord::Base
   end
 
   def gender_oa
-    g = gender.downcase
-    return g == "male" ? "o" : g == "female" ? "a" : ""
+    if gender
+      g = gender.downcase
+      return g == "male" ? "o" : g == "female" ? "a" : ""
+    else
+      return ""
+    end
   end
 
   def company_gender_oa
-    g = company_gender.downcase
-    return g == "male" ? "o" : g == "female" ? "a" : ""
+    if company_gender
+      g = company_gender.downcase
+      return g == "male" ? "o" : g == "female" ? "a" : ""
+    else
+      return ""
+    end
   end
 end
