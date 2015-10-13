@@ -64,6 +64,7 @@ class EmailsController < ApplicationController
   end
 
   def import_emails
+    @campaign = Campaign.find(params[:id])
     url = "https://clicksign:x8T3PyU9f6c7o2436oHp@clicksign.cloudant.com/sitemap-data-email-format-com--campaign-#{params[:id]}/_all_docs?include_docs=true"
     resource = RestClient::Resource.new(url)
     @data = resource.get()
@@ -81,7 +82,7 @@ class EmailsController < ApplicationController
       end
     end
 
-    redirect_to campaigns_path, notice: "Imported #{i} emails"
+    redirect_to @campaign, notice: "Imported #{i} emails"
   end
 
   private

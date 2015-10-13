@@ -112,7 +112,8 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def import_websites
+  def import_domains
+    @campaign = Campaign.find(params[:id])
     url = "https://clicksign:x8T3PyU9f6c7o2436oHp@clicksign.cloudant.com/sitemap-data-linkedin-company-url-campaign-#{params[:id]}/_all_docs?include_docs=true"
     resource = RestClient::Resource.new(url)
     @data = resource.get()
@@ -131,7 +132,7 @@ class ProfilesController < ApplicationController
       end
     end
 
-    redirect_to campaigns_path, notice: "Imported #{i} domains"
+    redirect_to @campaign, notice: "Imported #{i} domains"
   end
 
   private

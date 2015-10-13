@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   root 'campaigns#index'
-  get  'campaigns/:id/import_websites' => 'profiles#import_websites'
+  get  'campaigns/:id/import_domains' => 'profiles#import_domains'
   get  'campaigns/:id/import_emails' => 'emails#import_emails'
 
   resources :emails
