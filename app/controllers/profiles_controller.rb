@@ -42,10 +42,13 @@ class ProfilesController < ApplicationController
       .all.order("company, lower(name)").offset(params[:offset].to_i).first
     if @profile.website.present?
       @domain = Domainatrix.parse(@profile.website.downcase).domain_with_public_suffix
-      @emails = Email.where(domain: @domain)
+      @emails = Email.where(domain: @domain).pluck(:email)
+      if @emails.any?
+        @emails.unshift("-- Emails from this domain --")
+      end
       if @domain
         @email_options = [
-          "Select option",
+          "-- Ready formats --",
           I18n.transliterate(@profile.first_name + "." + @profile.last_name + "@" + @domain).downcase,
           I18n.transliterate(@profile.first_name[0] + @profile.last_name + "@" + @domain).downcase,
           I18n.transliterate(@profile.first_name[0] + "." + @profile.last_name + "@" + @domain).downcase,

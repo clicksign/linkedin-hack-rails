@@ -29,7 +29,14 @@
           %div= f.text_field :email, class: "form-control", placeholder: "Email"
           - if @email_options
             %br
-            %div= select_tag(:email_options, options_for_select( @email_options, @profile.email ), {class: "form-control"})
+            = select_tag(:email_options, options_for_select( @email_options, @profile.email ), {class: "form-control"})
+          - if @emails
+            - if @emails.any?
+              %br
+              = select_tag(:email_found, options_for_select( @emails ), {class: "form-control"})
+          - if @domain
+            %br
+            = link_to "Google Search domain", "https://www.google.com.br/search?q=\"%40#{@domain}\"%20email", target: "_blank", class: "btn btn-xs btn-default"
       %tr
         %td Gender:
         %td

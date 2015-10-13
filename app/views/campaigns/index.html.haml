@@ -5,9 +5,9 @@
     %tbody
       - @campaigns.each do |campaign|
         %tr
-          %td= campaign.title
-          %td= link_to 'Profiles', campaign_profiles_path(campaign)
-          %td= link_to 'Actions', campaign_path(campaign.id)
+          %td{width: "50%"}= campaign.title
+          %td{width: "25%"}= link_to 'Profiles', campaign_profiles_path(campaign)
+          %td{width: "25%"}= link_to 'Actions', campaign_path(campaign.id)
 
   %br
 

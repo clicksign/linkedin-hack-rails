@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on 'ready page:load', ->
   $("#email_options").change ->
-    if $("#email_options").val() != "Select option"
+    if $("#email_options").val() != "-- Ready formats --"
       $("#profile_email").val($("#email_options").val())
 
 $(document).on 'ready page:load', ->
