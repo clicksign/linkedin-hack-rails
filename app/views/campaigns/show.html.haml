@@ -1,0 +1,23 @@
+%div.container
+  %table.table.table-striped
+    %tbody
+      %tr
+        %td
+          %h1= @campaign.title
+      %tr
+        %td= link_to 'Hack Linkedin', hack_linkedin_campaign_path(@campaign.id)
+      %tr
+        %td= link_to 'Hack Domains', hack_domains_campaign_path(@campaign.id)
+      %tr
+        %td= link_to 'Import Domains', import_websites_campaign_path(@campaign.id)
+      %tr
+        %td= link_to 'Hack Emails', hack_emails_campaign_path(@campaign.id)
+      %tr
+        %td= link_to 'Import Emails', import_emails_campaign_path(@campaign.id)
+
+  = link_to 'Edit', edit_campaign_path(@campaign, @profile) |
+  = link_to 'Destroy', @campaign, method: :delete, data: { confirm: 'Are you sure?' }
+
+  %br
+
+  = link_to 'Back', campaigns_path

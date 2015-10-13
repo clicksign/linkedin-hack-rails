@@ -1,24 +1,24 @@
 Rails.application.routes.draw do
-  resources :campaigns
-  resources :emails
-  resources :googles
-  #resources :profiles
-
   resources :campaigns do
+    member do
+      get 'hack_linkedin'
+      get 'hack_domains'
+      get 'hack_emails'
+    end
+
     resources :profiles do
       collection do
         delete 'destroy_multiple'
+        get 'csv_pipedrive'
+        get 'csv_replyapp'
       end
     end
   end
 
   root 'campaigns#index'
-  #get  'campaigns/:id/profiles' => 'profiles#index_campaigns'
-  #get  'campaigns/:idcampaign/profiles/:id/edit' => 'profiles#edit_from_campaign'
-
-  get  'campaigns/:id/hack_linkedin' => 'campaigns#hack_linkedin'
-  get  'campaigns/:id/hack_domains' => 'campaigns#hack_domains'
-  get  'campaigns/:id/hack_emails' => 'campaigns#hack_emails'
   get  'campaigns/:id/import_websites' => 'profiles#import_websites'
   get  'campaigns/:id/import_emails' => 'emails#import_emails'
+
+  resources :emails
+  resources :googles
 end

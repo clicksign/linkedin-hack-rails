@@ -1,18 +1,14 @@
-%h2 Listing Campaigns
-%br
-%table.table.table-striped.table-hover.table-bordered
-  %tbody
-    - @campaigns.each do |campaign|
-      %tr
-        %td= link_to campaign.title, campaign_profiles_path(campaign)
-        %td= link_to 'Hack Linkedin', controller: 'campaigns', action: 'hack_linkedin', id: campaign.id
-        %td= link_to 'Hack Domains', controller: 'campaigns', action: 'hack_domains', id: campaign.id
-        %td= link_to 'Import Domains', controller: 'profiles', action: 'import_websites', id: campaign.id
-        %td= link_to 'Hack Emails', controller: 'campaigns', action: 'hack_emails', id: campaign.id
-        %td= link_to 'Import Emails', controller: 'emails', action: 'import_emails', id: campaign.id
-        %td= link_to 'Rename', edit_campaign_path(campaign)
-        %td= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' }
+%div.container
+  %h2 Listing Campaigns
+  %br
+  %table.table.table-striped.table-hover.table-bordered
+    %tbody
+      - @campaigns.each do |campaign|
+        %tr
+          %td= campaign.title
+          %td= link_to 'Profiles', campaign_profiles_path(campaign)
+          %td= link_to 'Actions', campaign_path(campaign.id)
 
-%br
+  %br
 
-%p= link_to 'New Campaign', new_campaign_path
+  %p= link_to 'New Campaign', new_campaign_path

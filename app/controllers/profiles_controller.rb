@@ -8,6 +8,24 @@ class ProfilesController < ApplicationController
     @profiles = Profile.search(params[:campaign_id], params[:search])
   end
 
+  def csv_pipedrive
+    @campaign = Campaign.find(params[:campaign_id])
+    @profiles = Profile.search(params[:campaign_id], params[:search])
+
+    respond_to do |format|
+      format.csv { send_data @profiles.to_pipedrive, filename: "Profiles-Pipedrive-#{@campaign.id}-#{Date.today}.csv" }
+    end
+  end
+
+  def csv_replyapp
+    @campaign = Campaign.find(params[:campaign_id])
+    @profiles = Profile.search(params[:campaign_id], params[:search])
+
+    respond_to do |format|
+      format.csv { send_data @profiles.to_replyapp, filename: "Profiles-ReplyApp-#{@campaign.id}-#{Date.today}.csv" }
+    end
+  end
+
   # GET /profiles/1
   # GET /profiles/1.json
   def show
