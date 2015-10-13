@@ -5,14 +5,14 @@ class Profile < ActiveRecord::Base
   def self.search(campaign_id, search)
     if search
       where(campaign_id: campaign_id).where(
-        ['name LIKE ?
-         OR title LIKE ?
-         OR company LIKE ?
-         OR email LIKE ?',
-         "%#{search}%",
-         "%#{search}%",
-         "%#{search}%",
-         "%#{search}%"]
+        ['lower(name) LIKE ?
+         OR lower(title) LIKE ?
+         OR lower(company) LIKE ?
+         OR lower(email) LIKE ?',
+         "%#{search.downcase}%",
+         "%#{search.downcase}%",
+         "%#{search.downcase}%",
+         "%#{search.downcase}%"]
       ).order("company, lower(name)")
     else
       where(campaign_id: campaign_id).all.order("company, lower(name)")
