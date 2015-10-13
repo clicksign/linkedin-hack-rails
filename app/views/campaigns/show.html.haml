@@ -14,9 +14,13 @@
       %tr
         %td= link_to '5. Import Emails', controller: 'emails', action: 'import_emails', id: @campaign.id
       %tr
-        %td= link_to '6. Export CSV Pipedrive', csv_pipedrive_campaign_profiles_path(@campaign.id, format: :csv)
+        %td
+          = link_to '6. Export CSV Pipedrive', csv_pipedrive_campaign_profiles_path(@campaign.id, format: :csv)
+          = link_to "Pipedrive", "https://clicksign2.pipedrive.com/data_import/step1/people", target: "_blank", class: "btn btn-xs btn-default"
       %tr
-        %td= link_to '7. Export CSV ReplyApp', csv_replyapp_campaign_profiles_path(@campaign.id, format: :csv)
+        %td
+          = link_to '7. Export CSV ReplyApp', csv_replyapp_campaign_profiles_path(@campaign.id, format: :csv)
+          = link_to "ReplyApp", "https://run.replyapp.io/#/prospects", target: "_blank", class: "btn btn-xs btn-default"
 
   = link_to 'Edit', edit_campaign_path(@campaign, @profile), class: 'btn btn-default'
   = link_to 'Destroy', @campaign, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }
